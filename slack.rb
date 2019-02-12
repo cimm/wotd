@@ -4,7 +4,7 @@ require 'net/https'
 
 class Slack
   def initialize(webhook)
-    @webhook = URI.parse(webhook)
+    @webhook = webhook
   end
 
   def post(text)

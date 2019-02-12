@@ -1,16 +1,24 @@
-# Slack WOTD
+# Wiktionary WOTD to Slack
 
-A little Ruby script that fetches the Word Of The Day from [Wikitionary](https://en.wiktionary.org/wiki/Wiktionary:Word_of_the_day), reformats it a little, and posts it to Slack.
+A little Ruby script that posts the Wiktionary [Word of the Day](https://en.wiktionary.org/w/index.php?title=Wiktionary:Word_of_the_day) to a Slack room.
+
+![WOTD Slack message](screenshot.png)
+
+It uses Wiktionary’s [RSS feed](https://en.wiktionary.org/w/api.php?action=featuredfeed&feed=wotd) to extract the most recent entry, wraps the WOTD and its definition in a nicely formatted Slack message and posts it to the Slack room.
 
 ## Install
 
-It needs the [Sanitize](https://rubygems.org/gems/sanitize) Ruby gem to remove the Wikitionary HTML so install that first:
+1/ It needs the [Sanitize](https://rubygems.org/gems/sanitize) Ruby gem to remove the Wikitionary HTML so install that first.
 
     gem install sanitize
 
-Create a [Slack webhook](https://api.slack.com/incoming-webhooks#posting_with_webhooks) and set it as the `SLACK_WEBHOOK` in to the `wotd.rb` file.
+2/ Create a [Slack webhook](https://api.slack.com/incoming-webhooks#posting_with_webhooks) and provide it to the script with the `hook` flag.
 
-Run `./wotd` from this directory and the most recent WOTD should show up in your selected Slack channel. You can optionally run this as a crontab to be greeted by a new WOTD in Slack every day.
+Run `./wotd` from the download directory (or throw it anywhere in your `PATH`) and the most recent WOTD should show up in the selected Slack channel.
+
+    ./wotd --hook https://hooks.slack.com/services/some/code/here
+
+You can optionally run this as a crontab to be greeted by a new WOTD in Slack every day.
 
 ## Why
 

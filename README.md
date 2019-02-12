@@ -23,3 +23,5 @@ You can optionally run this as a crontab to be greeted by a new WOTD in Slack ev
 ## Why
 
 Idea from my copywriter colleague who thought it would be fun to try to use a random WOTD in our discussions in a Slack thread where we were throwing randomly complex words at each other.
+
+There is feature complete Go port available as will (see the [`go` branch](https://github.com/cimm/wotd/tree/go)). I wrote both as an exercise.
